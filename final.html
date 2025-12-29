@@ -173,9 +173,9 @@ body{
 <div class="preview-container">
     <div class="msg-alerta">⚠️ CONTEÚDO PRIVADO IDENTIFICADO</div>
 
-    <div class="card-borrado">
-        <span class="contato-name">WhatsApp · Contato "Amor 2"</span>
-        "Oi, ela já saiu? To te esperando no <span class="censura"> Motel às 14h pra gente fazer aquilo </span> ..."
+    <div class="card-borrado" id="caixa-principal">
+        <span class="contato-name" id="nome-contato">WhatsApp · Contato "Amor 2"</span>
+        <span id="texto-mensagem">"Oi, ela já saiu? To te esperando no <span class="censura"> Motel às 14h pra gente fazer aquilo </span> ..."</span>
     </div>
 
     <div class="card-borrado">
@@ -188,27 +188,6 @@ body{
         O dispositivo permaneceu por 2h no endereço <span class="censura">Rua das Flores, 450 - Suíte 12</span>
     </div>
 </div>
-
-<script>
-    // PEGA A INFORMAÇÃO QUE GUARDAMOS NA PAGINA 1
-    const vinculo = localStorage.getItem('vinculoAlvo') || 'Alvo';
-    const card = document.getElementById('card-dinamico');
-
-    if (vinculo === 'Marido') {
-        card.innerHTML = `
-            <span class="contato-name">WhatsApp: Contato "Amante"</span>
-            <p style="margin:0;">
-                "Oi ela já saiu? To te esperando <span class="censura">no Motel às 14h</span> pra gente fazer aquilo..."
-            </p>`;
-    } else {
-        card.innerHTML = `
-            <span class="contato-name">WhatsApp: Contato "Cliente Ricardinho"</span>
-            <p style="margin:0;">
-                "consegue vir na minha casa pra fazer aquele program <span class="censura">Vem logo que estou</span> gostosa do caralho"
-            </p>`;
-    }
-</script>
-
 
 <div class="pix-box">
     <h2>Descriptografar acesso completo</h2>
@@ -232,6 +211,24 @@ body{
 </div>
 
 <script>
+// FUNÇÃO QUE TROCA O TEXTO BASEADO NA ESCOLHA DA PAGINA 1
+window.onload = function() {
+    const vinculo = localStorage.getItem('vinculoAlvo') || 'Marido';
+    const nome = document.getElementById('nome-contato');
+    const texto = document.getElementById('texto-mensagem');
+
+    if (vinculo === 'Esposa') {
+        // Se escolheu ESPOSA na Página 1
+        nome.innerText = 'WhatsApp · Contato "Cliente Ricardinho"';
+        texto.innerHTML = '"Vem quando aqui pra fazer aquele programa gosto<span class="censura">Vem logo que estou</span> acabar com voce."';
+    } else {
+        // Se escolheu MARIDO ou não escolheu nada
+        nome.innerText = 'WhatsApp · Contato "Amante"';
+        texto.innerHTML = '" bb aquela vagabunda já saiu? To te esperando no <span class="censura"> Motel às 14h pra gente fazer </span> aquilo..."';
+    }
+}
+
+// FUNÇÃO DO PIX E TIMER
 function copy() {
     navigator.clipboard.writeText(document.getElementById("pixKey").innerText);
     alert("Código copiado!");
@@ -246,27 +243,9 @@ setInterval(() => {
 }, 1000);
 </script>
 
-<script>
-    // Esse código deve ficar no final da sua final.html
-    window.onload = function() {
-        const escolha = localStorage.getItem('vinculoAlvo');
-        const nome = document.getElementById('nome-contato');
-        const texto = document.getElementById('texto-mensagem');
-
-        if (escolha === 'Esposa') {
-            nome.innerText = 'WhatsApp: Contato "Ricardinho"';
-            texto.innerHTML = 'Pode vir agora, ela já saiu. <span class="censura">Tô com muita saudade</span> do seu beijo...';
-        } else {
-            // Se for marido ou não tiver escolha, o padrão é esse:
-            nome.innerText = 'WhatsApp: Contato "Amante"';
-            texto.innerHTML = 'Oi sumido, ele já saiu? To te esperando <span class="censura">no Motel às 14h</span> pra gente...';
-        }
-    }
-</script>
-
-
 </body>
 </html>
+
 
 
 
