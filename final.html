@@ -211,21 +211,6 @@ body{
 </div>
 
 <script>
-// FUNÇÃO QUE TROCA O TEXTO BASEADO NA ESCOLHA DA PAGINA 1
-window.onload = function() {
-    const vinculo = localStorage.getItem('vinculoAlvo') || 'Marido';
-    const nome = document.getElementById('nome-contato');
-    const texto = document.getElementById('texto-mensagem');
-
-    if (vinculo === 'Esposa') {
-        // Se escolheu ESPOSA na Página 1
-        nome.innerText = 'WhatsApp · Contato "Cliente Ricardinho"';
-        texto.innerHTML = '"Vem quando aqui pra fazer aquele programa gosto<span class="censura">Vem logo que estou</span> acabar com voce."';
-    } else {
-        // Se escolheu MARIDO ou não escolheu nada
-        nome.innerText = 'WhatsApp · Contato "Amante"';
-        texto.innerHTML = '" bb aquela vagabunda já saiu? To te esperando no <span class="censura"> Motel às 14h pra gente fazer </span> aquilo..."';
-    }
 }
 
 // FUNÇÃO DO PIX E TIMER
@@ -243,8 +228,32 @@ setInterval(() => {
 }, 1000);
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Busca o que foi salvo
+    const vinculo = localStorage.getItem('vinculoAlvo');
+    
+    const nome = document.getElementById('nome-contato');
+    const texto = document.getElementById('texto-mensagem');
+
+    // TESTE: Se quiser ver o que o site está lendo, tire as duas barras da linha abaixo:
+    // alert("O sistema leu: " + vinculo);
+
+    if (vinculo === 'Esposa') {
+        nome.innerText = 'WhatsApp · Contato "Ricardinho"';
+        texto.innerHTML = '"Pode vir agora, ela já saiu. <span class="censura">Vem logo que estou</span> com saudade do seu beijo..."';
+    } else {
+        // Se for Marido ou se o navegador não achou nada (null)
+        nome.innerText = 'WhatsApp · Contato "Amante"';
+        texto.innerHTML = '"Oi sumido, ele já saiu? To te esperando no <span class="censura"> Motel às 14h pra gente fazer </span> aquilo..."';
+    }
+});
+</script>
+
+
 </body>
 </html>
+
 
 
 
