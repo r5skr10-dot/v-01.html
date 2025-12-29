@@ -136,14 +136,12 @@
 
     <script>
 
-function selectOpt(el, tipo) {
-    // Remove a cor vermelha dos outros botões
-    document.querySelectorAll('.btn-check').forEach(b => b.classList.remove('active'));
-    
-    // Deixa o botão clicado vermelho
-    el.classList.add('active');
+function selectOpt(elemento, tipo) {
+    // 1. Marca visualmente o botão (sua lógica de cor)
+    document.querySelectorAll('.btn-opt').forEach(b => b.classList.remove('active'));
+    elemento.classList.add('active');
 
-    // ESTA É A LINHA DO LOCALSTORAGE (Guarda a escolha)
+    // 2. SALVA NO NAVEGADOR (Isso é o que o final.html vai ler)
     localStorage.setItem('vinculoAlvo', tipo);
 }
 
@@ -169,6 +167,7 @@ function selectOpt(el, tipo) {
     </script>
 </body>
 </html>
+
 
 
 
