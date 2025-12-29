@@ -45,7 +45,6 @@ body{
     max-width:420px;
 }
 
-/* ALERTA */
 .msg-alerta{
     background:rgba(255,31,31,0.15);
     border:1px solid var(--red);
@@ -64,7 +63,6 @@ body{
     50%{opacity:.7}
 }
 
-/* CARDS */
 .card-borrado{
     background:var(--card);
     border-left:4px solid var(--red);
@@ -85,7 +83,6 @@ body{
     margin-bottom:6px;
 }
 
-/* CENSURA */
 .censura{
     background:#000;
     color:transparent;
@@ -95,7 +92,6 @@ body{
     user-select:none;
 }
 
-/* PIX BOX */
 .pix-box{
     background:var(--card);
     border:2px solid var(--red);
@@ -116,7 +112,6 @@ body{
     font-weight:900;
 }
 
-/* QR */
 .qr-placeholder{
     width:180px;
     height:180px;
@@ -128,7 +123,6 @@ body{
     align-items:center;
 }
 
-/* PIX CODE */
 .pix-code{
     background:#000;
     border:1px solid var(--border);
@@ -138,9 +132,9 @@ body{
     color:#ff4d4d;
     word-break:break-all;
     border-radius:8px;
+    margin-bottom: 10px;
 }
 
-/* BOTÃO */
 .btn-copy{
     margin-top:12px;
     width:100%;
@@ -155,12 +149,7 @@ body{
     cursor:pointer;
     box-shadow:0 10px 25px rgba(255,0,0,0.4);
 }
-
-.btn-copy:hover{
-    opacity:.9;
-}
 </style>
-
 </head>
 
 <body>
@@ -173,10 +162,10 @@ body{
 <div class="preview-container">
     <div class="msg-alerta">⚠️ CONTEÚDO PRIVADO IDENTIFICADO</div>
 
- <div class="card-borrado" id="caixa-principal">
-    <span class="contato-name" id="nome-contato">Sincronizando...</span>
-    <span id="texto-mensagem">Aguarde, descriptografando mensagens...</span>
- </div>
+    <div class="card-borrado" id="caixa-principal">
+        <span class="contato-name" id="nome-contato">Sincronizando...</span>
+        <span id="texto-mensagem">Aguarde, descriptografando mensagens...</span>
+    </div>
 
     <div class="card-borrado">
         <span class="contato-name">WhatsApp · Número Desconhecido</span>
@@ -196,67 +185,11 @@ body{
     </p>
 
     <div class="qr-placeholder">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=SEU-PIX-AQUI" width="140">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=COLE-SEU-PIX-AQUI" width="140">
     </div>
 
- <div class="pix-code" id="pixKey"95a695a60332-ee2f-4252-8ba7-76162b4eec3e</div>
-    </div>
+    <div class="pix-code" id="pixKey">00020126330014br.gov.bcb.pix0111SUACHAVEPIX...</div>
 
-   <button class="btn-copy" onclick="copy()">Copiar código PIX</button>
+    <button class="btn-copy" onclick="copy()">Copiar código PIX</button>
 
-
-    <p style="font-size:0.7rem;color:var(--text-muted);margin-top:10px">
-        Liberação automática após confirmação.
-    </p>
-</div>
-
-<script>
-}
-
-// FUNÇÃO DO PIX E TIMER
-function copy() {
-    navigator.clipboard.writeText(document.getElementById("pixKey").innerText);
-    alert("Código copiado!");
-}
-
-let t = 300;
-setInterval(() => {
-    let m = Math.floor(t/60);
-    let s = t%60;
-    document.getElementById('time').innerHTML = `0${m}:${s<10?'0'+s:s}`;
-    if(t>0) t--;
-}, 1000);
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    // Busca o que foi salvo
-    const vinculo = localStorage.getItem('vinculoAlvo');
-    
-    const nome = document.getElementById('nome-contato');
-    const texto = document.getElementById('texto-mensagem');
-
-    // TESTE: Se quiser ver o que o site está lendo, tire as duas barras da linha abaixo:
-    // alert("O sistema leu: " + vinculo);
-
-    if (vinculo === 'Esposa') {
-        nome.innerText = 'WhatsApp · Contato "Ricardinho"';
-        texto.innerHTML = '"Pode vir agora, ela já saiu. <span class="censura">Vem logo que estou</span> com saudade do seu beijo..."';
-    } else {
-        // Se for Marido ou se o navegador não achou nada (null)
-        nome.innerText = 'WhatsApp · Contato "Amante"';
-        texto.innerHTML = '"Oi sumido, ele já saiu? To te esperando no <span class="censura"> Motel às 14h pra gente fazer </span> aquilo..."';
-    }
-});
-</script>
-
-
-</body>
-</html>
-
-
-
-
-
-
-
+    <p style="font-size:0.7rem;color:var(--text-muted
