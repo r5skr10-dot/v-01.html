@@ -189,6 +189,27 @@ body{
     </div>
 </div>
 
+<script>
+    // PEGA A INFORMAÇÃO QUE GUARDAMOS NA PAGINA 1
+    const vinculo = localStorage.getItem('vinculoAlvo') || 'Alvo';
+    const card = document.getElementById('card-dinamico');
+
+    if (vinculo === 'Marido') {
+        card.innerHTML = `
+            <span class="contato-name">WhatsApp: Contato "Amante"</span>
+            <p style="margin:0;">
+                "Oi ela já saiu? To te esperando <span class="censura">no Motel às 14h</span> pra gente fazer aquilo..."
+            </p>`;
+    } else {
+        card.innerHTML = `
+            <span class="contato-name">WhatsApp: Contato "Cliente Ricardinho"</span>
+            <p style="margin:0;">
+                "consegue vir na minha casa pra fazer aquele program <span class="censura">Vem logo que estou</span> gostosa do caralho"
+            </p>`;
+    }
+</script>
+
+
 <div class="pix-box">
     <h2>Descriptografar acesso completo</h2>
     <p style="font-size:0.8rem;color:var(--text-muted)">
@@ -227,3 +248,4 @@ setInterval(() => {
 
 </body>
 </html>
+
