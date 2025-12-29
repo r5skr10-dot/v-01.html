@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAINEL DE ACESSO</title>
+
+<style>
+:root{
+    --red:#ff1f1f;
+    --red-dark:#b30000;
+    --dark:#050505;
+    --card:#0d0d0d;
+    --border:#1f1f1f;
+    --text:#ffffff;
+    --muted:#b5b5b5;
+}
+
+body{
+    background:var(--dark);
+    color:var(--text);
+    font-family:'Segoe UI', Roboto, sans-serif;
+    margin:0;
+    padding:12px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.header h1{
+    font-size:1.4rem;
+    font-weight:800;
+    color:var(--red);
+    letter-spacing:0.5px;
+}
+
+.preview-container,
+.pix-box{
+    width:100%;
+    max-width:420px;
+}
+
+/* ALERTA */
+.msg-alerta{
+    background:rgba(255,31,31,0.15);
+    border:1px solid var(--red);
+    color:var(--red);
+    font-weight:900;
+    font-size:0.75rem;
+    padding:10px;
+    border-radius:10px;
+    text-align:center;
+    margin-bottom:15px;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{opacity:1}
+    50%{opacity:.7}
+}
+
+/* CARDS */
+.card-borrado{
+    background:var(--card);
+    border-left:4px solid var(--red);
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:12px;
+    font-size:0.95rem;
+    line-height:1.45;
+    filter:blur(2px);
+    opacity:.85;
+}
+
+.contato-name{
+    color:#ff6a6a;
+    font-weight:700;
+    font-size:0.8rem;
+    display:block;
+    margin-bottom:6px;
+}
+
+/* CENSURA */
+.censura{
+    background:#000;
+    color:transparent;
+    padding:0 6px;
+    border-radius:4px;
+    filter:blur(5px);
+    user-select:none;
+}
+
+/* PIX BOX */
+.pix-box{
+    background:var(--card);
+    border:2px solid var(--red);
+    border-radius:22px;
+    padding:22px;
+    text-align:center;
+    box-shadow:0 0 30px rgba(255,0,0,0.2);
+}
+
+.pix-box h2{
+    font-size:1.1rem;
+    font-weight:800;
+    margin-bottom:6px;
+}
+
+.timer{
+    color:var(--red);
+    font-weight:900;
+}
+
+/* QR */
+.qr-placeholder{
+    width:180px;
+    height:180px;
+    background:#fff;
+    border-radius:14px;
+    margin:16px auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* PIX CODE */
+.pix-code{
+    background:#000;
+    border:1px solid var(--border);
+    padding:10px;
+    font-family:monospace;
+    font-size:0.75rem;
+    color:#ff4d4d;
+    word-break:break-all;
+    border-radius:8px;
+}
+
+/* BOTÃO */
+.btn-copy{
+    margin-top:12px;
+    width:100%;
+    padding:18px;
+    background:linear-gradient(90deg,var(--red),var(--red-dark));
+    color:#fff;
+    border:none;
+    border-radius:14px;
+    font-weight:900;
+    font-size:1.05rem;
+    text-transform:uppercase;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(255,0,0,0.4);
+}
+
+.btn-copy:hover{
+    opacity:.9;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Descubra a Verdade</h1>
+    <p>ID da Sessão: #88291-TX</p>
+</div>
+
+<div class="preview-container">
+    <div class="msg-alerta">⚠️ CONTEÚDO PRIVADO IDENTIFICADO</div>
+
+    <div class="card-borrado">
+        <span class="contato-name">WhatsApp · Contato "Amor 2"</span>
+        "Oi, ela já saiu? To te esperando no <span class="censura"> Motel às 14h pra gente fazer aquilo </span> ..."
+    </div>
+
+    <div class="card-borrado">
+        <span class="contato-name">WhatsApp · Número Desconhecido</span>
+        "Não esquece de apagar <span class="censura">as fotos que te mandei</span> antes de chegar em casa."
+    </div>
+
+    <div class="card-borrado">
+        <span class="contato-name">Localização · Google Maps</span>
+        O dispositivo permaneceu por 2h no endereço <span class="censura">Rua das Flores, 450 - Suíte 12</span>
+    </div>
+</div>
+
+<script>
+    // PEGA A INFORMAÇÃO QUE GUARDAMOS NA PAGINA 1
+    const vinculo = localStorage.getItem('vinculoAlvo') || 'Alvo';
+    const card = document.getElementById('card-dinamico');
+
+    if (vinculo === 'Marido') {
+        card.innerHTML = `
+            <span class="contato-name">WhatsApp: Contato "Amante"</span>
+            <p style="margin:0;">
+                "Oi sumido, ela já saiu? To te esperando <span class="censura">no Motel às 14h</span> pra gente fazer aquilo..."
+            </p>`;
+    } else {
+        card.innerHTML = `
+            <span class="contato-name">WhatsApp: Contato "Cliente Ricardinho"</span>
+            <p style="margin:0;">
+                "Faz um programa aqui na rua. <span class="censura">Vem logo que estou</span>"
+            </p>`;
+    }
+</script>
+
+<div class="pix-box">
+    <h2>Descriptografar acesso completo</h2>
+    <p style="font-size:0.8rem;color:var(--text-muted)">
+        Licença expira em <span class="timer" id="time">05:00</span>
+    </p>
+
+    <div class="qr-placeholder">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=SEU-PIX-AQUI" width="140">
+    </div>
+
+    <div class="pix-code" id="pixKey">
+        00020126330014br.gov.bcb.pix0111SUACHAVEPIX...
+    </div>
+
+    <button class="btn-copy" onclick="copy()">Copiar código PIX</button>
+
+    <p style="font-size:0.7rem;color:var(--text-muted);margin-top:10px">
+        Liberação automática após confirmação.
+    </p>
+</div>
+
+<script>
+function copy() {
+    navigator.clipboard.writeText(document.getElementById("pixKey").innerText);
+    alert("Código copiado!");
+}
+
+let t = 300;
+setInterval(() => {
+    let m = Math.floor(t/60);
+    let s = t%60;
+    document.getElementById('time').innerHTML = `0${m}:${s<10?'0'+s:s}`;
+    if(t>0) t--;
+}, 1000);
+</script>
+
+</body>
+</html>
