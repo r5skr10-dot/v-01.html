@@ -137,12 +137,13 @@
     <script>
 
 function selectOpt(elemento, tipo) {
-    // 1. Marca visualmente o botão (sua lógica de cor)
-    document.querySelectorAll('.btn-opt').forEach(b => b.classList.remove('active'));
+    // 1. Remove a classe de todos os botões e coloca no clicado
+    document.querySelectorAll('.btn-check').forEach(b => b.classList.remove('active'));
     elemento.classList.add('active');
 
-    // 2. SALVA NO NAVEGADOR (Isso é o que o final.html vai ler)
+    // 2. SALVA NO NAVEGADOR (Certifique-se que 'tipo' é 'Marido' ou 'Esposa')
     localStorage.setItem('vinculoAlvo', tipo);
+    console.log("Salvou: " + tipo); // Isso ajuda a testar no computador
 }
 
         function selectOpt(el) {
@@ -167,6 +168,7 @@ function selectOpt(elemento, tipo) {
     </script>
 </body>
 </html>
+
 
 
 
