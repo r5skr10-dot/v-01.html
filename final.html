@@ -246,6 +246,29 @@ setInterval(() => {
 }, 1000);
 </script>
 
+<script>
+    // O site lê o que foi guardado. Se não achar nada, assume 'Marido' por padrão.
+    const escolhaDoUsuario = localStorage.getItem('vinculoAlvo');
+
+    const areaDaMensagem = document.getElementById('mensagem-dinamica');
+
+    if (escolhaDoUsuario === 'Esposa') {
+        // Se ele escolheu ESPOSA, mostra mensagem de amante homem
+        areaDaMensagem.innerHTML = `
+            <span class="contato">WhatsApp: Contato "Ricardinho"</span>
+            <p>"Pode vir, ela saiu. <span class="censura">Tô com saudade</span> do seu beijo..."</p>
+        `;
+    } else {
+        // Se ele escolheu MARIDO (ou se não escolheu nada), mostra mensagem de amante mulher
+        areaDaMensagem.innerHTML = `
+            <span class="contato">WhatsApp: Contato "Amante"</span>
+            <p>"Oi sumido, ele saiu? <span class="censura">Tô te esperando no Motel</span>..."</p>
+        `;
+    }
+</script>
+
+
 </body>
 </html>
+
 
